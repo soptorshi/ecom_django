@@ -1,2 +1,3 @@
-# ecom_django
-E-Commerce website using Django
+# Django Website
+
+e-Commerce website using Django 

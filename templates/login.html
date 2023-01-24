@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Log In{% endblock title %}
+
+{% block body %}
+<br>
+<br>
+<br>
+
+    <form class="form-signin" method="post">
+      {% csrf_token %}
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+       <!-- <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          name="username"
+          placeholder="username"
+        />
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          name="password"
+          placeholder="Password"
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" /> Remember me
+        </label>
+      </div>
+      <button
+        style="
+          background-color: rgb(48, 48, 48);
+          border-color: rgb(48, 48, 48);
+        "
+        class="w-100 btn btn-lg btn-primary"
+        type="submit"
+      >
+        Log In
+      </button>  -->
+      <input type="text" name="username" placeholder="Username">
+      <br>
+      <br>
+      <input type="password" name="password" placeholder="Password">
+      <br>
+      <br>
+      <input type="submit">
+    </form>
+{% endblock body %}

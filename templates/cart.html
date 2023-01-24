@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock title %}
+{% block body %}
+    <center>
+        <h3>Items you have added to cart will show up here!</h3>
+        <br>
+        <table>
+        {% for cart_item in cart_items %}
+            <form action="" method="post">
+            {% csrf_token %}
+                <input type="hidden" name="prod_id" value="{{cart_item.id}}">
+                <tr>
+                    <td><b>{{cart_item.name}}, {{cart_item.flavour}}</b> - {{cart_item.price}}</td>
+                    <td><input type="submit" value="Remove"></td>
+                </tr>
+            </form>
+        {% endfor %}
+        </table>
+    
+    </center>
+
+{% endblock body %}

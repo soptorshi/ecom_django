@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}Shop{% endblock title %}
+{% block body %}
+    <center>
+        <table>
+            {% for shop_item in shop_items %}
+                <form action="{% url 'shop' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="prod_id" value="{{shop_item.id}}">
+                    <tr>
+                        <td>{{shop_item}} Rs.{{shop_item.price}}, {{shop_item.net_weight}}g</td>
+                        <td><input type="submit" value="Add to cart"></td>
+                    </tr>
+                </form>
+            {% endfor %}
+        </table>
+    </center>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+{% block title %}Shop{% endblock title %}
+{% block body %}
+    
+    <form action="{% url 'shop' %}" method = 'POST' class='d-flex'>
+        {% csrf_token %}
+        <div class="input-group" style="margin:auto;padding:20px">
+            <input type="search" name="searched" class="form-control rounded" placeholder="Search ice creams" aria-label="Search" aria-describedby="search-addon" />
+            <button type="button" class="btn btn-outline-primary">Search</button>
+        </div>
+    </form>
+    {% if searched %}
+        <center><h2>You've searched for '{{searched}}'</h2></center>
+        <br>
+        <center>
+            <table>
+                {% for icecream in icecreams %}
+                    <form action="{%url 'shop' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="text" value="{{icecreams.id}}"> 
+
+                        <tr><td>{{icecream}} Rs.{{icecream.price}}, {{icecream.net_weight}}g</td>
+                        
+                        <td><input name="add" type="submit" value="Add to cart"></td></tr>
+                    </form>
+                    <br>
+                {% endfor %}
+            </table>
+        </center>
+    {% else %}
+        <center> <h2>Search for your ice creams here.</h2></center>
+        <br>
+        <center>
+            <table>
+                {% for icecream in icecreams %}
+                    <form action="{% url 'shop' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" value="{{icecream.id}}">
+                        <tr><td>{{icecream}} Rs.{{icecream.price}}, {{icecream.net_weight}}g</td>
+                        <td><input name="add" type="submit" value="Add to cart"></td></tr>
+                    </form>
+                {% endfor %}
+            </table>
+        </center>
+                
+    {% endif %}
+       
+{% endblock body %} {% endcomment %}
