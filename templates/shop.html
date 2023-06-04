@@ -1,10 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}Shop{% endblock title %}
 {% block body %}
+<<<<<<< HEAD
     <center>
         <table>
             {% for shop_item in shop_items %}
                 <form action="{% url 'shop' %}" method="post">
+=======
+    <form  method = 'POST' class='d-flex' action="{% url 'search_icecreams' %}">
+        {% csrf_token %}
+        <div class="input-group" style="margin:auto;padding:20px">
+            <input type="search" name="searched" class="form-control rounded" placeholder="Search ice creams" aria-label="Search" aria-describedby="search-addon" />
+            <button type="button"  class="btn btn-outline-primary">Search</button>
+        </div>
+    </form>
+    <center>
+        <table>
+            {% for shop_item in shop_items %}
+                <form action="{% url 'search_icecreams' %}" method="post">
+>>>>>>> b8f1ac3 (added payment gateway)
                     {% csrf_token %}
                     <input type="hidden" name="prod_id" value="{{shop_item.id}}">
                     <tr>
@@ -15,6 +29,7 @@
             {% endfor %}
         </table>
     </center>
+<<<<<<< HEAD
 {% endblock body %}
 
 
@@ -91,3 +106,6 @@
     {% endif %}
        
 {% endblock body %} {% endcomment %}
+=======
+{% endblock body %} 
+>>>>>>> b8f1ac3 (added payment gateway)
